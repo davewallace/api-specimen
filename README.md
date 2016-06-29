@@ -7,6 +7,12 @@ In most cases:
 1. run `npm install`
 2. load up index.html in a browser
 
+##js-googlemaps
+
+After initial installation on Windows 10, I needed to navigate into 
+`/node_modules/google-maps` and run `npm install` again, after that, the sample
+file loads with its required dependencies.
+
 # Style guide
 
 I encourage leaving a trail of URLs used to reference or inform your sample
