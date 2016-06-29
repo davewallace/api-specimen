@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript stackoverflow.com API</title>
+        <style type="text/css">
+          p {
+            padding-left:32px;
+            background:transparent url(https://www.cuba-platform.com/sites/all/themes/cuba_adaptive/img/stackoverflow-icon.png) left center no-repeat;
+            background-size: contain;
+          }
+        </style>
+    </head>
+    <body>
+
+        <a href="https://api.stackexchange.com/">Javascript stackoverflow.com API</a>
+        <p>stackoverflow.com reputation for user <span class="insert"></span>.</p>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script type="text/javascript">
+
+          // incrementors for reputation and paged API result sets
+          var totalReputation = 0;
+          var pagedReputation = 0;
+          var userId = 283933;
+
+          function queryReputation () {
+
+            pagedReputation++;
+
+            // promise-based API query
+            $.ajax({
+                url: 'https://api.stackexchange.com/2.2/users/' + userId + '/reputation?site=stackoverflow&pagesize=100&page=' + pagedReputation
+            })
+            .fail(function (data) {
+
+              console.log('API query failed.');
+              console.log(data);
+
+            })
+            .then(function (data) {
+
+              console.log('API query complete.');
+              console.log(data);
+
+              // respect stackexchange API throttle
+              if (data.backoff === true) {
+                console.warn('stackexchange API delay required, too -requent calls detected.');
+                return;
+              }
+
+              // iterate the received reputation object Array
+              data.items.forEach(function (reputationObject) {
+
+                // increment our total rep counter
+                totalReputation += reputationObject.reputation_change;
+
+/*
+                if (reputationObject.reputation_change === 0) {
+                  console.log(reputationObject);
+                }
+*/
+
+                // out of interest, log reputation changes
+                if (reputationObject.reputation_change < 0) {
+                  console.log('%c' + totalReputation, 'color:red;');
+                } else {
+                  console.log(totalReputation);
+                }
+
+              });
+
+              // data is paged in queries, so the `has_more` property should be
+              // tested to see if there's more data to be queried in the total
+              // result set
+              if (data.has_more === true) {
+                queryReputation();
+              } else {
+
+                // paging complete, let's print our incremented rep
+                printReputation();
+              }
+
+            },
+            // error handling
+            function (error) {
+              console.log(error);
+              $('.insert').html('(failed to fetch data, sorry)');
+            });
+
+          };
+
+          // write to DOM
+          function printReputation () {
+            $('.insert').html(userId + ' is ' + totalReputation);
+          };
+
+          // begin the API query process
+          queryReputation();
+
+        </script>
+    </body>
+</html>
