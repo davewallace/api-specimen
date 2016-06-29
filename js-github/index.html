@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript github.com API v3</title>
+        <style type="text/css">
+          p {
+            padding-left:32px;
+            background:transparent url(http://image.flaticon.com/icons/svg/25/25231.svg) left center no-repeat;
+            background-size: contain;
+          }
+        </style>
+    </head>
+    <body>
+
+        <a href="https://api.github.com/">Javascript github.com API v3</a>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script type="text/javascript">
+
+          var auth = 'INSERT_YOUR_TOKEN_HERE';
+
+          $.ajax({
+              // url: 'https://api.github.com/orgs/ninelanterns/repos?type=private',
+              url: 'https://api.github.com/user/repos?visibility=private',
+              headers: {
+                'Authorization': 'token ' + auth
+              }
+          })
+          .done(function (data) {
+
+            console.log('model data done.');
+            console.log(data);
+
+          })
+          .fail(function (data) {
+
+            console.log('model data failed.');
+            console.log(data);
+
+          })
+          .always(function (data) {
+
+            console.log('model data always.');
+            console.log(data);
+
+          })
+          .then(function (data) {
+
+            console.log('model data ready, initiation time.');
+            data.forEach(function (repo) {
+              console.log('Repo is private: ' + repo.private);
+            });
+
+          },
+          // error handling
+          function (error) {
+            console.log(error);
+          });
+
+        </script>
+    </body>
+</html>
