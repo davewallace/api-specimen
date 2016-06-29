@@ -30,6 +30,10 @@ file, within which a sample URL would be supplied. For example the
 `js-googlemaps` directory contains only a README file contain a link to a
 more relevant sample; https://github.com/google/google-api-nodejs-client.git
 
+An embedded sample's contents, having been included from an external source,
+must be contained within a `embed` directory inside the sample directory, eg;
+`/js-googlemaps/embed/`.
+
 # Contributions
 
 In case there's a better workflow with simplicity in mind, let's have a master
