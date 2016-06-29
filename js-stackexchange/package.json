@@ -2,7 +2,7 @@
   "name": "api-specimen-js-stackexchange",
   "description": "Testing basic, unauthorized calls to the stackexchange API.",
   "repository": "git@github.com:davewallace/api-specimen.git",
-  "license":"MIT",
+  "license": "GPLv3",
   "version": "0.1.0",
   "devDependencies": {
     "jquery": "^3.0.0"
