@@ -17,8 +17,16 @@ someone else, even if only for a short time.
 Each sample should have its own dependency specification and build requirements,
 platform agnostic where possible and noted otherwise.
 
+## Embedded samples
+
+Within a given sample directory, it is acceptable to contain only a README.md
+file, within which a sample URL would be supplied. For example the
+`js-googlemaps` directory contains only a README file contain a link to a
+more relevant sample; https://github.com/google/google-api-nodejs-client.git
+
 # Contributions
 
 In case there's a better workflow with simplicity in mind, let's have a master
 branch with feature branches for new samples. When the samples get agreement
 between folk, they're into master.
+
