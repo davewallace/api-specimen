@@ -1,2 +1,5 @@
-# git@github.com:davewallace/js-api-specimen.git
-A set of API calls to various services, written in Javascript, for your convenience.
+# git@github.com:davewallace/api-specimen.git
+A set of API calls to various services, for convenience.
+
+1. run `npm install`
+2. load up index.html in a browser
