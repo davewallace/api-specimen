@@ -14,6 +14,9 @@ embedded in code comments. Yes, some may rot or become out of date over time,
 but even some useful reference links to your implementation might be of help to
 someone else, even if only for a short time.
 
+Each sample should have its own dependency specification and build requirements,
+platform agnostic where possible and noted otherwise.
+
 # Contributions
 
 In case there's a better workflow with simplicity in mind, let's have a master
