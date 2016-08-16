@@ -13,6 +13,23 @@ After initial installation on Windows 10, I needed to navigate into
 `/node_modules/google-maps` and run `npm install` again, after that, the sample
 file loads with its required dependencies.
 
+##SSL
+
+In some instances you may be required to execute API calls over https instead of
+http, and possibly with CORS enabled on your server, with the correct headers
+supplied for pre-flight checks.
+
+To create a SSL Certificate for (mostly) painless local development, ensure you
+have `openssl` installed, then follow guidelines as required here:
+- https://www.sslshopper.com/article-most-common-openssl-commands.html
+
+There are plenty of debugging Q&A's at stackoverflow.com to work around setup
+and Certification installation issues, for example (Windows 10):
+- http://stackoverflow.com/questions/7360602/openssl-and-error-in-reading-openssl-conf-file
+- http://stackoverflow.com/questions/27608922/self-signed-ssl-cert-for-localhost-how-to-make-trusted
+- http://stackoverflow.com/questions/991758/how-to-get-an-openssl-pem-file-from-key-and-crt-files
+- http://stackoverflow.com/questions/27294589/creating-self-signed-certificate-for-domain-and-subdomains-neterr-cert-commo
+
 # Style guide
 
 I encourage leaving a trail of URLs used to reference or inform your sample
@@ -39,4 +56,3 @@ must be contained within a `embed` directory inside the sample directory, eg;
 In case there's a better workflow with simplicity in mind, let's have a master
 branch with feature branches for new samples. When the samples get agreement
 between folk, they're into master.
-
