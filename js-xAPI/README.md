@@ -6,6 +6,6 @@ $ openssl req -x509 -sha256 -nodes -days 30 -newkey rsa:2048 -keyout privateKey.
 $ http-server --ssl --cert local-dev-ssl-certificate.crt --key privateKey.key --cors
 
 Check xAPI version in `xAPIWrapper/src/xapiwrapper.js` is equal to the version supported by your LRS,
-default at time of this reference is: `XAPIWrapper.prototype.xapiVersion = "1.0.0";`
+default at time of this reference is: `XAPIWrapper.prototype.xapiVersion = "1.0.1";`
 
 Open `https://localhost:8080` in a browser with console open.
