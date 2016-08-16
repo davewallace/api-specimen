@@ -1,0 +1,9 @@
+{
+  "name": "api-specimen-js-xAPI",
+  "description": "Testing calls to a Learning Record Store using xAPI.",
+  "repository": "git@github.com:davewallace/api-specimen.git",
+  "license": {
+  	"type": "GPLv3"
+  },
+  "version": "0.1.0"
+}

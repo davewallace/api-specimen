@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript xAPI</title>
+    </head>
+    <body>
+
+      <script type="text/javascript" src="./xAPIWrapper/lib/cryptojs_v3.1.2.js"></script>
+      <script type="text/javascript" src="./xAPIWrapper/src/verbs.js"></script>
+      <script type="text/javascript" src="./xAPIWrapper/src/xapistatement.js"></script>
+      <script type="text/javascript" src="./xAPIWrapper/src/xapiwrapper.js"></script>
+
+      <script type="text/javascript">
+
+      function init() {
+
+        var stmt = new ADL.XAPIStatement(
+          new ADL.XAPIStatement.Agent(ADL.XAPIWrapper.hash('mailto:FirstName.LastName@example.com'), 'FirstName LastName'),
+          ADL.verbs.launched,
+          new ADL.XAPIStatement.Activity('act:wrapper_test', 'xAPIWrapper test page',
+            'A website that exercises the functions of the xAPIWrapper')
+        );
+        stmt.generateId();
+        stmt.addOtherContextActivity( new ADL.XAPIStatement.Activity('compId:internet_proficiency') );
+        stmt.generateRegistration();
+
+        var username = '',
+            auth = '',
+            endpoint = '';
+
+        ADL.XAPIWrapper.changeConfig({
+          'endpoint': endpoint,
+          'user': username,
+          'password': auth
+        });
+
+        ADL.XAPIWrapper.sendStatement(stmt, function (resp, obj) {  
+            ADL.XAPIWrapper.log('[' + obj.id + ']: ' + resp.status + ' - ' + resp.statusText);
+        });
+
+
+        var o = document.getElementById('output');
+        o.innerText = JSON.stringify(stmt, null, '    ');
+      }
+
+      </script>
+    </head>
+    <body onload="init()">
+      <code><pre id="output"></pre></code>
+    </body>
+</html>
