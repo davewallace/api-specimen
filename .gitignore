@@ -6,4 +6,5 @@ _archive/
 *.pem
 *.crt
 *.csr
+*.key
 js-xAPI/xAPIWrapper/
