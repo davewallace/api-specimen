@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Javascript Soundcloud API</title>
+    </head>
+    <body>
+
+        <a href="https://developers.soundcloud.com/docs/api/guide">Javascript soundcloud.com API</a>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script type="text/javascript">
+
+          var auth = 'INSERT_YOUR_TOKEN_HERE';
+
+          $.ajax({
+              url: '',
+              headers: {
+                'Authorization': 'token ' + auth
+              }
+          })
+          .done(function (data) {
+
+            console.log('data done.');
+            console.log(data);
+
+          })
+          .fail(function (data) {
+
+            console.log('data failed.');
+            console.log(data);
+
+          })
+          .always(function (data) {
+
+            console.log('data always.');
+            console.log(data);
+
+          })
+          .then(function (data) {
+
+            console.log('data ready, initiation time.');
+
+          },
+          // error handling
+          function (error) {
+            console.log(error);
+          });
+
+        </script>
+    </body>
+</html>

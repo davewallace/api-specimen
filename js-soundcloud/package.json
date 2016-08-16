@@ -1,0 +1,12 @@
+{
+  "name": "api-specimen-js-soundcloud",
+  "description": "Testing basic, un/authorized calls to the Soundcloud API.",
+  "repository": "git@github.com:davewallace/api-specimen.git",
+  "license": {
+  	"type": "GPLv3"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "jquery": "^3.0.0"
+  }
+}
