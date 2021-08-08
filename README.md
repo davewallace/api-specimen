@@ -7,13 +7,13 @@ In most cases:
 1. run `npm install`
 2. load up index.html in a browser
 
-##js-googlemaps
+## js-googlemaps
 
 After initial installation on Windows 10, I needed to navigate into 
 `/node_modules/google-maps` and run `npm install` again, after that, the sample
 file loads with its required dependencies.
 
-##SSL
+## SSL
 
 In some instances you may be required to execute API calls over https instead of
 http, and possibly with CORS enabled on your server, with the correct headers
